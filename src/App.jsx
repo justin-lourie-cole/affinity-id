@@ -5,17 +5,23 @@ import { Home, EmployeeList, Edit, Create, Selected, Nav } from './components'
 
 const App = () => {
   return (
-    <div className="content">
-      <div className="container-xl mt-5 pt-4">
+    <div className="content p-5 m-5">
+      <div className="container-xl px-5 mx-5">
         <Nav />
         <div className="container" id="employeeList">
-          <EmployeeList />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/create" component={Create} />
-            <Route exact path="/:id" component={Selected} />
-            <Route exact path="/:id/edit" component={Edit} />
-          </Switch>
+          <div className="row">
+            <div className="col">
+              <EmployeeList />
+            </div>
+            <div className="col">
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/create" component={Create} />
+                <Route exact path="/:id" component={Selected} />
+                <Route exact path="/:id/edit" component={Edit} />
+              </Switch>
+            </div>
+          </div>
         </div>
       </div>
     </div>

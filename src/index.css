@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('/src/Webapp_layouts/01\ -\ desktop-employee\ register\ -\ home.jpg');
+  background-image: url('/src/img/background.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -15,3 +15,89 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.employee-list-card {
+  max-width: 400px;
+  height: 80px;
+  padding: 10px 20px 10px 20px !important;
+}
+
+.employee-list-img {
+  max-width: 60px;
+  position: relative;
+}
+.employee-list-img-lg {
+  max-width: 104px;
+  position: relative;
+}
+
+.list-image-wrapper {
+  padding: 0px;
+}
+
+.col .name {
+  color: #827e99;
+  font-family: arial, sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 18px;
+}
+.col .name-lg {
+  color: #4a4a4a;
+  font-family: arial, sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.col .role {
+  color: #827e99;
+  font-family: arial, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+.col .email {
+  color: #9b9b9b;
+  font-family: arial, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+}
+.col .team {
+  color: #9b9b9b;
+  font-family: arial, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.custom-radius {
+  border-radius: 15px !important;
+  border: none;
+}
+
+.card-title {
+  font-size: 12px;
+  font-family: arial, sans-serif;
+  color: #827e99;
+  font-weight: bold;
+}
+
+.card-data {
+  font-size: 14px;
+  font-family: arial, sans-serif;
+  color: #827e99;
+}
+
+.custom-btn {
+  background-color: #9b9b9b;
+  color: white;
+  font-family: arial, sans-serif;
+  font-size: 14px;
+}
+
+.form-label {
+  font-family: arial, sans-serif;
+  color: #4a4a4a;
+}
+/* 
+form button {
+  background-color: green !important;
+} */

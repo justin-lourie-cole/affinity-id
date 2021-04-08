@@ -1,9 +1,9 @@
-import axios from 'axios'
+import request from 'superagent'
 
 const baseUrl = 'http://localhost:3004/employees/'
 
 export function getEmployees() {
-  return axios
+  return request
     .get(baseUrl)
     .then(res => res.body)
     .catch(err => {
@@ -12,7 +12,7 @@ export function getEmployees() {
 }
 
 export function getEmployeeById(id) {
-  return axios
+  return request
     .get(baseUrl + id)
     .then(res => res.body)
     .catch(err => {
@@ -20,8 +20,18 @@ export function getEmployeeById(id) {
     })
 }
 
+export function addEmployee(employee) {
+  return request
+    .post(baseUrl)
+    .send(employee)
+    .then(res => res.body)
+    .catch(err => {
+      throw new Error(err.response.text)
+    })
+}
+
 export function updateEmployee(id, data) {
-  return axios
+  return request
     .patch(baseUrl + id, data)
     .then(res => res.body)
     .catch(err => {
@@ -30,7 +40,7 @@ export function updateEmployee(id, data) {
 }
 
 export function deleteEmployee(id) {
-  return axios
+  return request
     .delete(baseUrl + id)
     .then(res => res.body)
     .catch(err => {

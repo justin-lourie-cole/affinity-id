@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 
-import { getEmployees } from '../api/apiClient'
+import { Context } from '../context/Context'
+import { Employee } from './index'
 
 export const EmployeeList = () => {
-  const [employees, setEmployees] = useState([])
+  const { employees } = useContext(Context)
 
-  useEffect(() => {
-    getEmployees().then(res => {
-      setEmployees(res)
-      console.log(res)
-    })
-  }, [])
-
-  return <div></div>
+  return (
+    <div>
+      {employees && (
+        <div>
+          {employees.map(employee => (
+            <Employee key={employee.id} {...employee} />
+          ))}
+        </div>
+      )}
+    </div>
+  )
 }

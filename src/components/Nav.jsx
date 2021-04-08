@@ -1,8 +1,9 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 export const Nav = () => {
   return (
-    <div class="container">
+    <div className="container">
       <div className="row px-4">
         <div className="col">
           <div className="container px-4 pb-2">
@@ -18,9 +19,11 @@ export const Nav = () => {
         </div>
         <div className="col px-5">
           <div className="d-grid gap-2">
-            <button type="button" class="btn btn-dark">
-              CREATE A NEW EMPLOYEE
-            </button>
+            <NavLink to="/create">
+              <button type="button" className="btn btn-dark custom-radius p-3">
+                CREATE A NEW EMPLOYEE
+              </button>
+            </NavLink>
           </div>
         </div>
       </div>
