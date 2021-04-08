@@ -16,7 +16,7 @@
       "name": "Victoria Ferguson",
       "email": "victoria@affinityid.co.nz",
       "role": "Admin",
-      "team": "Management",
+      "team": "Spiritual Advisor",
       "address": "25 College Hill",
       "city": "Auckland",
       "image": "./img/victoria.png",
@@ -56,40 +56,14 @@
       "createdAt": "2018-12-10T13: 49: 51.141Z"
     },
     {
-      "image": "./img/jack.png",
+      "image": "./img/donna.png",
       "name": "Justin Cole",
       "email": "justincole.c@gmail.com",
       "role": "admin",
       "team": "creative",
       "address": "115c Moore St howick",
+      "city": "Auckland",
       "id": 6
-    },
-    {
-      "image": "./img/mary.png",
-      "name": "Justin Cole",
-      "email": "justincole.c@gmail.com",
-      "role": "admin",
-      "team": "management",
-      "address": "115c Moore St howick",
-      "id": 7
-    },
-    {
-      "image": "./img/donna.png",
-      "name": "Justin Cole",
-      "email": "justincole@outlook.co.nz",
-      "role": "employee",
-      "team": "finance & admin",
-      "address": "115c Moore St howick",
-      "id": 8
-    },
-    {
-      "image": "",
-      "name": "",
-      "email": "",
-      "role": "",
-      "team": "",
-      "address": "",
-      "id": 9
     }
   ]
 }

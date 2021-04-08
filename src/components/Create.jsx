@@ -35,7 +35,7 @@ export const Create = () => {
 
   return (
     <form
-      className="card custom-radius shadow p-4 mb-5 bg-body rounded"
+      className="card custom-radius shadow p-5 mb-5 bg-body rounded"
       onSubmit={handleSubmit}>
       <div className="mb-3">
         <label for="image" className="form-label">
@@ -111,6 +111,7 @@ export const Create = () => {
           <option value="creative">Creative</option>
           <option value="management">Management</option>
           <option value="finance & admin">Finance & Admin</option>
+          <option value="Spiritual Advisor">Spiritual Advisor</option>
         </select>
       </div>
       <div className="mb-3">
@@ -123,6 +124,19 @@ export const Create = () => {
           value={formData.address}
           aria-describedby="emailHelp"
           placeholder="Enter Address"
+          onChange={handleChange}
+        />
+      </div>
+      <div className="mb-3">
+        <label for="city" className="form-label">
+          City
+        </label>
+        <input
+          className="form-control"
+          name="city"
+          value={formData.city}
+          aria-describedby="emailHelp"
+          placeholder="Enter City"
           onChange={handleChange}
         />
       </div>

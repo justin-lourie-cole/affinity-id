@@ -1,12 +1,11 @@
 import React, { useContext } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, NavLink } from 'react-router-dom'
 
 import { Context } from '../context/Context'
 
 export const Selected = () => {
   const { employees } = useContext(Context)
   const { id } = useParams()
-  console.log(employees)
 
   const selectedEmployee = employees.find(
     employee => employee.id === Number(id)
@@ -23,10 +22,16 @@ export const Selected = () => {
       <h6 className="email text-start">{selectedEmployee.email}</h6>
       <div className="row">
         <div className="col">
-          <i className="fas fa-pen"></i>
+          <NavLink to={`/${id}/edit`}>
+            <button type="button" class="btn btn-secondary rounded-circle">
+              <i className="fas fa-pen"></i>
+            </button>
+          </NavLink>
         </div>
         <div className="col">
-          <i className="fas fa-times"></i>
+          <button type="button" class="btn btn-secondary rounded-circle">
+            <i className="fas fa-times danger"></i>
+          </button>
         </div>
       </div>
 
