@@ -48,7 +48,7 @@ export const Edit = () => {
 
   return (
     <form
-      className="card custom-radius shadow p-5 mb-5 bg-body rounded"
+      className="card custom-radius shadow p-5 mb-5 bg-body form-width"
       onSubmit={handleSubmit}>
       <div className="badge position-absolute w-auto top-0 start-100 p-0 translate-middle">
         <button

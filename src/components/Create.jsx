@@ -34,10 +34,23 @@ export const Create = () => {
       .then(() => history.push(`/${id}`))
   }
 
+  const goBack = () => {
+    history.goBack()
+  }
+
   return (
     <form
-      className="card custom-radius shadow p-5 mb-5 bg-body rounded"
+      className="card custom-radius shadow p-5 mb-5 bg-body rounded form-width"
       onSubmit={handleSubmit}>
+      <div className="badge position-absolute w-auto top-0 start-100 p-0 translate-middle">
+        <button
+          type="button"
+          class="btn rounded-circle"
+          id="back-btn"
+          onClick={goBack}>
+          <i className="fas fa-times danger"></i>
+        </button>
+      </div>
       <div className="mb-3">
         <label for="image" className="form-label">
           Profile Image
@@ -94,8 +107,8 @@ export const Create = () => {
           aria-label="Default select example"
           onChange={handleChange}>
           <option selected>Please select a role</option>
-          <option value="admin">Admin</option>
-          <option value="employee">Employee</option>
+          <option value="Admin">Admin</option>
+          <option value="Employee">Employee</option>
         </select>
       </div>
       <div className="mb-3">

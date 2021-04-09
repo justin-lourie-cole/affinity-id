@@ -8,7 +8,6 @@ export const Employee = ({ id }) => {
   const selectedEmployee = employees.find(
     employee => employee.id === Number(id)
   )
-  const { image, name, role, team } = selectedEmployee
 
   let history = useHistory()
 
@@ -17,20 +16,29 @@ export const Employee = ({ id }) => {
   }
 
   return (
-    <div
-      className="card px-10 py-20 btn employee-list-card custom-radius shadow p-3 my-4 bg-body rounded"
-      onClick={handleEmployeeClick}>
-      <div className="row">
-        <div className="col-3 list-img-wrapper">
-          <img className="employee-list-img" src={image} alt="employee"></img>
-        </div>
+    <div>
+      {selectedEmployee && (
+        <div
+          className="card btn employee-list-card custom-radius shadow p-3 mb-4 bg-body rounded"
+          onClick={handleEmployeeClick}>
+          <div className="row">
+            <div className="col-3 list-img-wrapper">
+              <img
+                className="employee-list-img"
+                src={selectedEmployee.image}
+                alt="employee"></img>
+            </div>
 
-        <div className="col">
-          <h4 className="name text-start mb-0 mt-1">{name}</h4>
-          <h5 className="role text-start mb-1">{role}</h5>
-          <h6 className="team text-start mb-1">{team}</h6>
+            <div className="col">
+              <h4 className="name text-start mb-0 mt-1">
+                {selectedEmployee.name}
+              </h4>
+              <h5 className="role text-start mb-1">{selectedEmployee.role}</h5>
+              <h6 className="team text-start mb-1">{selectedEmployee.team}</h6>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

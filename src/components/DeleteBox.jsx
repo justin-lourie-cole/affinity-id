@@ -8,7 +8,7 @@ export const DeleteBox = ({ id, toggleVisibility }) => {
   const { setEmployees } = useContext(Context)
   let history = useHistory()
 
-  const handleDelete = e => {
+  const handleDelete = () => {
     deleteEmployee(id)
       .then(() => history.push('/'))
       .then(() => getEmployees())
