@@ -16,10 +16,49 @@ code {
     monospace;
 }
 
+#affinityid-logo {
+  width: 360px;
+  height: 34px;
+  opacity: 1;
+}
+
+#search-box {
+  width: 360px;
+  height: 50px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  opacity: 1;
+}
+
+#create-btn {
+  width: 400px;
+  height: 50px;
+  background: #000000 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 20px #d4d4d480;
+  border-radius: 12px;
+  border: none;
+  color: white;
+  opacity: 1;
+}
+
 .employee-list-card {
-  max-width: 400px;
+  width: 360px;
   height: 80px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 20px #d4d4d480;
+  border-radius: 12px;
+  opacity: 1;
   padding: 10px 20px 10px 20px !important;
+}
+
+.selected-card {
+  width: 400px;
+  height: 420px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 10px 20px #d4d4d480;
+  border-radius: 12px;
+  opacity: 1;
 }
 
 .employee-list-img {
@@ -69,7 +108,7 @@ code {
 }
 
 .custom-radius {
-  border-radius: 15px !important;
+  border-radius: 12px !important;
   border: none;
 }
 
@@ -101,3 +140,46 @@ code {
 form button {
   background-color: green !important;
 } */
+
+#submit-btn,
+#add-btn {
+  background-color: #469c46;
+  color: white;
+}
+
+#back-btn {
+  background-color: #161616;
+  color: white;
+}
+
+#edit-btn,
+#delete-btn {
+  background-color: #f2f7fa;
+  color: #161616;
+  border: none;
+}
+#delete-btn {
+  color: #fa323f;
+}
+
+.showDeleteBox {
+  background-color: #d0021b;
+  border-radius: 12px;
+  width: 360px;
+  opacity: 0.7;
+}
+
+.delete-yes-no {
+  font-size: 12px;
+  font-family: arial, sans-serif;
+  color: white;
+  font-weight: bold;
+  margin: 0px;
+  cursor: pointer;
+}
+.are-you-sure {
+  font-size: 12px;
+  font-family: arial, sans-serif;
+  color: white;
+  margin: 0px;
+}

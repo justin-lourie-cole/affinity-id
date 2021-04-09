@@ -22,8 +22,9 @@ export const Create = () => {
   }
 
   const handleSubmit = e => {
-    let id
     e.preventDefault()
+
+    let id
     addEmployee(formData)
       .then(res => {
         id = res.id
@@ -141,7 +142,10 @@ export const Create = () => {
         />
       </div>
 
-      <button type="submit" className="btn btn-success custom-radius p-3">
+      <button
+        type="submit"
+        className="btn btn-success custom-radius p-3"
+        id="add-btn">
         ADD EMPLOYEE
       </button>
     </form>

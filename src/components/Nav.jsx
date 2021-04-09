@@ -6,21 +6,24 @@ export const Nav = () => {
     <div className="container">
       <div className="row px-4">
         <div className="col">
-          <div className="container px-4 pb-2">
+          <div id="affinityid-logo">
             <img src="../img/affinityid-logo.svg" alt="affinityid-logo" />
           </div>
           <div className="container py-3">
             <input
-              className="form-control form-control-lg"
+              id="search-box"
               type="text"
               placeholder="Search:"
               aria-label=".form-control-lg example"></input>
           </div>
         </div>
-        <div className="col px-5">
+        <div className="col">
           <div className="d-grid gap-2">
             <NavLink to="/create">
-              <button type="button" className="btn btn-dark custom-radius p-3">
+              <button
+                type="button"
+                // className="btn btn-dark custom-radius p-3"
+                id="create-btn">
                 CREATE A NEW EMPLOYEE
               </button>
             </NavLink>

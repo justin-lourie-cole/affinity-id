@@ -53,7 +53,8 @@ export const Edit = () => {
       <div className="badge position-absolute w-auto top-0 start-100 p-0 translate-middle">
         <button
           type="button"
-          class="btn btn-dark rounded-circle"
+          class="btn rounded-circle"
+          id="back-btn"
           onClick={goBack}>
           <i className="fas fa-times danger"></i>
         </button>
@@ -162,7 +163,7 @@ export const Edit = () => {
         />
       </div>
 
-      <button type="submit" className="btn btn-success custom-radius p-3">
+      <button type="submit" className="btn custom-radius p-3" id="submit-btn">
         UPDATE EMPLOYEE
       </button>
     </form>

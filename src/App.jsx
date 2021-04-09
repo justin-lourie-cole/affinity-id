@@ -6,7 +6,7 @@ import { Home, EmployeeList, Edit, Create, Selected, Nav } from './components'
 const App = () => {
   return (
     <div className="content p-5 m-5">
-      <div className="container-xl px-5 mx-5">
+      <div className="container-xl px-5">
         <Nav />
         <div className="container" id="employeeList">
           <div className="row">

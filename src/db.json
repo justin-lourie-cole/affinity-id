@@ -54,16 +54,6 @@
       "city": "Auckland",
       "image": "./img/andy.png",
       "createdAt": "2018-12-10T13: 49: 51.141Z"
-    },
-    {
-      "image": "./img/donna.png",
-      "name": "Justin Cole",
-      "email": "justincole.c@gmail.com",
-      "role": "admin",
-      "team": "creative",
-      "address": "115c Moore St howick",
-      "city": "Auckland",
-      "id": 6
     }
   ]
 }

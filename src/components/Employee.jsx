@@ -18,7 +18,7 @@ export const Employee = ({ id }) => {
 
   return (
     <div
-      className="card px-10 py-20 btn employee-list-card custom-radius shadow p-3 mb-5 bg-body rounded"
+      className="card px-10 py-20 btn employee-list-card custom-radius shadow p-3 my-4 bg-body rounded"
       onClick={handleEmployeeClick}>
       <div className="row">
         <div className="col-3 list-img-wrapper">
@@ -26,9 +26,9 @@ export const Employee = ({ id }) => {
         </div>
 
         <div className="col">
-          <h5 className="name text-start">{name}</h5>
-          <h6 className="role text-start">{role}</h6>
-          <h6 className="team text-start">{team}</h6>
+          <h4 className="name text-start mb-0 mt-1">{name}</h4>
+          <h5 className="role text-start mb-1">{role}</h5>
+          <h6 className="team text-start mb-1">{team}</h6>
         </div>
       </div>
     </div>
