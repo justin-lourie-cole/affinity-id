@@ -2,18 +2,9 @@ import request from 'superagent'
 
 const baseUrl = 'http://localhost:3004/employees/'
 
-export function getEmployees() {
+export function fetchEmployees() {
   return request
     .get(baseUrl)
-    .then(res => res.body)
-    .catch(err => {
-      throw new Error(err.response.text)
-    })
-}
-
-export function getEmployeeById(id) {
-  return request
-    .get(baseUrl + id)
     .then(res => res.body)
     .catch(err => {
       throw new Error(err.response.text)

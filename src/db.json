@@ -5,7 +5,7 @@
       "name": "Jack Jackson",
       "email": "jack@affinityid.co.nz",
       "role": "Admin",
-      "team": "Creative",
+      "team": "Spiritual Advisor",
       "address": "307 Brant Road",
       "city": "Auckland",
       "image": "./img/jack.png",
@@ -16,7 +16,7 @@
       "name": "Victoria Ferguson",
       "email": "victoria@affinityid.co.nz",
       "role": "Admin",
-      "team": "Spiritual Advisor",
+      "team": "Creative",
       "address": "25 College Hill",
       "city": "Auckland",
       "image": "./img/victoria.png",
@@ -26,7 +26,7 @@
       "id": 3,
       "name": "Donna Hicks",
       "email": "donna@affinityid.co.nz",
-      "role": "Admin",
+      "role": "Employee",
       "team": "Finance & Admin",
       "address": "25 College Hill",
       "city": "Auckland",
@@ -37,12 +37,22 @@
       "id": 4,
       "name": "Mary Long",
       "email": "mary@affinityid.co.nz",
-      "role": "Employee",
-      "team": "Creative",
+      "role": "Admin",
+      "team": "Management",
       "address": "25 College Hill",
       "city": "Auckland",
       "image": "./img/mary.png",
       "createdAt": "2018-12-10T13: 49: 51.141Z"
+    },
+    {
+      "image": "./img/justin.png",
+      "name": "Justin Cole",
+      "email": "justincole@outlook.co.nz",
+      "role": "Employee",
+      "team": "Creative",
+      "address": "115c Moore St",
+      "city": "Auckland",
+      "id": 6
     }
   ]
 }

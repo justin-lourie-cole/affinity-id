@@ -2,17 +2,19 @@ import React, { useContext, useState, useEffect } from 'react'
 
 import { Context } from '../context/Context'
 import { Employee } from './index'
+import { filterByRole, sortAtoZ, sortZtoA } from '../utilities'
 
 export const EmployeeList = () => {
-  const [admins, setAdmins] = useState([])
-  const [workers, setWorkers] = useState([])
+  const [order, setOrder] = useState([])
+  const [descending, setDescending] = useState(true)
 
   const { employees } = useContext(Context)
 
   useEffect(() => {
-    setAdmins(employees.filter(employee => employee.role === 'Admin'))
-    setWorkers(employees.filter(employee => employee.role === 'Employee'))
-  }, [employees])
+    descending
+      ? setOrder(sortAtoZ(employees, 'name'))
+      : setOrder(sortZtoA(employees, 'name'))
+  }, [descending, employees]) //
 
   return (
     <div>
@@ -21,18 +23,20 @@ export const EmployeeList = () => {
           <h5 className="catagory-title">Admin</h5>
         </div>
         <div className="col-6">
-          <h5 className="catagory-title">
+          <h5 className="catagory-title-right">
             Sort by:{' '}
-            <span>
-              <b>newest</b>
-            </span>
+            {descending ? (
+              <span onClick={() => setDescending(!descending)}>Z to A</span>
+            ) : (
+              <span onClick={() => setDescending(!descending)}>A to Z</span>
+            )}
           </h5>
         </div>
       </div>
       <div>
-        {admins.length > 0 && (
+        {order && (
           <div>
-            {admins.map(employee => (
+            {filterByRole(order, 'Admin').map(employee => (
               <Employee key={employee.id} {...employee} />
             ))}
           </div>
@@ -42,9 +46,9 @@ export const EmployeeList = () => {
         <h5 className="catagory-title">Employee</h5>
       </div>
       <div>
-        {workers.length > 0 && (
+        {order && (
           <div>
-            {workers.map(employee => (
+            {filterByRole(order, 'Employee').map(employee => (
               <Employee key={employee.id} {...employee} />
             ))}
           </div>

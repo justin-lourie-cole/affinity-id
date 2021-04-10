@@ -1,8 +1,8 @@
 import nock from 'nock'
 
 import {
-  getEmployees,
-  getEmployeeById,
+  fetchEmployees,
+  fetchEmployeeById,
   updateEmployee,
   deleteEmployee
 } from './apiClient'
@@ -10,27 +10,27 @@ import { mockdb } from '../mockdb'
 
 const baseUrl = 'http://localhost:3004/employees/'
 
-describe('getEmployees', () => {
+describe('fetchEmployees', () => {
   const scope = nock(baseUrl).get().reply(200, mockdb)
 
   it('should return a list of all employees', () => {
     expect.assertions(2)
-    return getEmployees().then(employees => {
+    return fetchEmployees().then(employees => {
       expect(employees).toEqual(mockdb)
-      expect(scope.isDone().toBe(true))
+      expect(scope.isDone()).toBe(true)
       return null
     })
   })
 })
 
-describe('getEmployeeById', () => {
+describe('fetchEmployeeById', () => {
   const scope = nock(baseUrl).get(1).reply(200, mockdb[0])
 
   it('should return the first employee', () => {
     expect.assertions(2)
-    return getEmployeeById(1).then(employee => {
-      expect(employee).toEqual(mock[0])
-      expect(scope.isDone().toBe(true))
+    return fetchEmployeeById(1).then(employee => {
+      expect(employee).toEqual(mockdb[0])
+      expect(scope.isDone()).toBe(true)
       return null
     })
   })
@@ -44,7 +44,7 @@ describe('updateEmployee', () => {
     expect.assertions(2)
     return updateEmployee(1, newAddress).then(employee => {
       expect(employee).toEqual(mockdb[0])
-      expect(scope.isDone().toBe(true))
+      expect(scope.isDone()).toBe(true)
       return null
     })
   })
@@ -53,10 +53,10 @@ describe('updateEmployee', () => {
 describe('deleteEmployee', () => {
   const scope = nock(baseUrl).delete(1).reply(200, {})
 
-  it('should delete the fist employee', () => {
+  it('should delete the first employee', () => {
     expect.assertions(1)
     return deleteEmployee(1).then(() => {
-      expect(scope.isDone().toBe(true))
+      expect(scope.isDone()).toBe(true)
       return null
     })
   })

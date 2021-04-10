@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react'
 
-import { getEmployees } from '../api/apiClient'
+import { fetchEmployees } from '../api/apiClient'
 
 const Context = createContext()
 
@@ -8,7 +8,7 @@ const ContextProvider = ({ children }) => {
   const [employees, setEmployees] = useState([])
 
   useEffect(() => {
-    getEmployees().then(res => {
+    fetchEmployees().then(res => {
       setEmployees(res)
     })
   }, [])

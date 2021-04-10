@@ -1,8 +1,9 @@
 import React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 
-import { addEmployee, getEmployees } from '../api/apiClient'
+import { addEmployee, fetchEmployees } from '../api/apiClient'
 import { Context } from '../context/Context'
+import { changeHandler } from '../utilities'
 
 export const Create = () => {
   const [formData, setFormData] = useState({
@@ -14,28 +15,21 @@ export const Create = () => {
     address: ''
   })
   const { setEmployees } = useContext(Context)
-  let history = useHistory()
+  const history = useHistory()
+  const goBack = () => history.goBack()
 
-  const handleChange = e => {
-    const { name, value } = e.target
-    setFormData({ ...formData, [name]: value })
-  }
+  const handleChange = e => changeHandler(e, formData, setFormData)
 
   const handleSubmit = e => {
     e.preventDefault()
-
-    let id
+    let employeeId
     addEmployee(formData)
       .then(res => {
-        id = res.id
-        return getEmployees()
+        employeeId = res.id
+        return fetchEmployees()
       })
       .then(res => setEmployees(res))
-      .then(() => history.push(`/${id}`))
-  }
-
-  const goBack = () => {
-    history.goBack()
+      .then(() => history.push(`/${employeeId}`))
   }
 
   return (
@@ -45,14 +39,14 @@ export const Create = () => {
       <div className="badge position-absolute w-auto top-0 start-100 p-0 translate-middle">
         <button
           type="button"
-          class="btn rounded-circle"
+          className="btn rounded-circle"
           id="back-btn"
           onClick={goBack}>
           <i className="fas fa-times danger"></i>
         </button>
       </div>
       <div className="mb-3">
-        <label for="image" className="form-label">
+        <label htmlFor="image" className="form-label">
           Profile Image
         </label>
         <select
@@ -61,16 +55,19 @@ export const Create = () => {
           value={formData.image}
           aria-label="Default select example"
           onChange={handleChange}>
-          <option selected>Please select a profile image</option>
+          <option value="DEFAULT" disabled>
+            Please select a profile image
+          </option>
           <option value="./img/andy.png">Andy</option>
           <option value="./img/donna.png">Donna</option>
           <option value="./img/jack.png">Jack</option>
           <option value="./img/mary.png">Mary</option>
           <option value="./img/victoria.png">Victoria</option>
+          <option value="./img/justin.png">Victoria</option>
         </select>
       </div>
       <div className="mb-3">
-        <label for="name" className="form-label">
+        <label htmlFor="name" className="form-label">
           Name
         </label>
         <input
@@ -83,7 +80,7 @@ export const Create = () => {
         />
       </div>
       <div className="mb-3">
-        <label for="email" className="form-label">
+        <label htmlFor="email" className="form-label">
           Email Address
         </label>
         <input
@@ -97,7 +94,7 @@ export const Create = () => {
         />
       </div>
       <div className="mb-3">
-        <label for="role" className="form-label">
+        <label htmlFor="role" className="form-label">
           Role
         </label>
         <select
@@ -106,13 +103,15 @@ export const Create = () => {
           value={formData.role}
           aria-label="Default select example"
           onChange={handleChange}>
-          <option selected>Please select a role</option>
+          <option value="DEFAULT" disabled>
+            Please select a role
+          </option>
           <option value="Admin">Admin</option>
           <option value="Employee">Employee</option>
         </select>
       </div>
       <div className="mb-3">
-        <label for="team" className="form-label">
+        <label htmlFor="team" className="form-label">
           Team
         </label>
         <select
@@ -121,15 +120,17 @@ export const Create = () => {
           value={formData.team}
           aria-label="Default select example"
           onChange={handleChange}>
-          <option selected>Please select a team</option>
-          <option value="creative">Creative</option>
-          <option value="management">Management</option>
-          <option value="finance & admin">Finance & Admin</option>
+          <option value="DEFAULT" disabled>
+            Please select a team
+          </option>
+          <option value="Creative">Creative</option>
+          <option value="Management">Management</option>
+          <option value="Finance & Admin">Finance & Admin</option>
           <option value="Spiritual Advisor">Spiritual Advisor</option>
         </select>
       </div>
       <div className="mb-3">
-        <label for="address" className="form-label">
+        <label htmlFor="address" className="form-label">
           Address
         </label>
         <input
@@ -142,7 +143,7 @@ export const Create = () => {
         />
       </div>
       <div className="mb-3">
-        <label for="city" className="form-label">
+        <label htmlFor="city" className="form-label">
           City
         </label>
         <input

@@ -1,8 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 
-import { updateEmployee, getEmployees } from '../api/apiClient'
+import { updateEmployee, fetchEmployees } from '../api/apiClient'
 import { Context } from '../context/Context'
+import { findById, changeHandler } from '../utilities'
 
 export const Edit = () => {
   const [formData, setFormData] = useState({
@@ -16,34 +17,30 @@ export const Edit = () => {
 
   const { employees, setEmployees } = useContext(Context)
   const { id } = useParams()
-  let history = useHistory()
+  const history = useHistory()
+  const goBack = () => history.goBack()
 
-  const selectedEmployee = employees.find(
-    employee => employee.id === Number(id)
+  const { image, name, email, role, team, address, city } = findById(
+    employees,
+    id
   )
-  const { image, name, email, role, team, address, city } = selectedEmployee
 
   useEffect(() => {
     setFormData({ image, name, email, role, team, address, city })
   }, [image, name, email, role, team, address, city])
 
-  const handleChange = e => {
-    const { name, value } = e.target
-    setFormData({ ...formData, [name]: value })
-  }
+  const handleChange = e => changeHandler(e, formData, setFormData)
 
   const handleSubmit = e => {
     e.preventDefault()
+    let employeeId
     updateEmployee(id, formData)
-      .then(() => {
-        return getEmployees()
+      .then(res => {
+        employeeId = res.id
+        return fetchEmployees()
       })
       .then(res => setEmployees(res))
-      .then(() => history.push(`/${id}`))
-  }
-
-  const goBack = () => {
-    history.goBack()
+      .then(() => history.push(`/${employeeId}`))
   }
 
   return (
@@ -53,14 +50,14 @@ export const Edit = () => {
       <div className="badge position-absolute w-auto top-0 start-100 p-0 translate-middle">
         <button
           type="button"
-          class="btn rounded-circle"
+          className="btn rounded-circle"
           id="back-btn"
           onClick={goBack}>
           <i className="fas fa-times danger"></i>
         </button>
       </div>
       <div className="mb-3">
-        <label for="image" className="form-label">
+        <label htmlFor="image" className="form-label">
           Profile Image
         </label>
         <select
@@ -69,16 +66,16 @@ export const Edit = () => {
           value={formData.image}
           aria-label="Default select example"
           onChange={handleChange}>
-          <option selected>Please select a profile image</option>
           <option value="./img/andy.png">Andy</option>
           <option value="./img/donna.png">Donna</option>
           <option value="./img/jack.png">Jack</option>
           <option value="./img/mary.png">Mary</option>
           <option value="./img/victoria.png">Victoria</option>
+          <option value="./img/justin.png">Justin</option>
         </select>
       </div>
       <div className="mb-3">
-        <label for="name" className="form-label">
+        <label htmlFor="name" className="form-label">
           Name
         </label>
         <input
@@ -91,7 +88,7 @@ export const Edit = () => {
         />
       </div>
       <div className="mb-3">
-        <label for="email" className="form-label">
+        <label htmlFor="email" className="form-label">
           Email Address
         </label>
         <input
@@ -105,7 +102,7 @@ export const Edit = () => {
         />
       </div>
       <div className="mb-3">
-        <label for="role" className="form-label">
+        <label htmlFor="role" className="form-label">
           Role
         </label>
         <select
@@ -114,13 +111,12 @@ export const Edit = () => {
           value={formData.role}
           aria-label="Default select example"
           onChange={handleChange}>
-          <option selected>Please select a role</option>
           <option value="Admin">Admin</option>
           <option value="Employee">Employee</option>
         </select>
       </div>
       <div className="mb-3">
-        <label for="team" className="form-label">
+        <label htmlFor="team" className="form-label">
           Team
         </label>
         <select
@@ -129,7 +125,6 @@ export const Edit = () => {
           value={formData.team}
           aria-label="Default select example"
           onChange={handleChange}>
-          <option selected>Please select a team</option>
           <option value="Creative">Creative</option>
           <option value="Finance & Admin">Finance & Admin</option>
           <option value="Management">Management</option>
@@ -137,7 +132,7 @@ export const Edit = () => {
         </select>
       </div>
       <div className="mb-3">
-        <label for="address" className="form-label">
+        <label htmlFor="address" className="form-label">
           Address
         </label>
         <input
@@ -150,7 +145,7 @@ export const Edit = () => {
         />
       </div>
       <div className="mb-3">
-        <label for="city" className="form-label">
+        <label htmlFor="city" className="form-label">
           City
         </label>
         <input
