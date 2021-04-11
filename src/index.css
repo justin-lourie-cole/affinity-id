@@ -16,6 +16,25 @@ code {
     monospace;
 }
 
+@media only screen and (max-width: 992px) {
+  .app-padding {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .logo-margin {
+    margin-bottom: 10px;
+  }
+  .search-bar-justify {
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .app-padding {
+    padding-top: 70px;
+    padding-bottom: 50px;
+  }
+}
+
 #affinityid-logo {
   width: 360px;
   height: 34px;
@@ -168,10 +187,6 @@ option,
   font-family: arial, sans-serif;
   color: #4a4a4a;
 }
-/* 
-form button {
-  background-color: green !important;
-} */
 
 #submit-btn,
 #add-btn {
@@ -227,24 +242,7 @@ span {
   color: #4a4a4a;
   cursor: pointer;
 }
-@media only screen and (max-width: 992px) {
-  .app-padding {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .logo-margin {
-    margin-bottom: 10px;
-  }
-  .search-bar-justify {
-    justify-content: center;
-  }
-}
-@media only screen and (min-width: 992px) {
-  .app-padding {
-    padding-top: 70px;
-    padding-bottom: 50px;
-  }
-}
+
 .btn-delete {
   opacity: 0.1;
   cursor: default !important;
