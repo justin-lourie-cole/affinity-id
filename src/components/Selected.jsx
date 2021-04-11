@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import copy from 'copy-to-clipboard'
 
 import { Context } from '../context/Context'
 import { DeleteBox } from './DeleteBox'
@@ -12,7 +13,12 @@ export const Selected = () => {
 
   useEffect(() => {
     setSelectedEmployee(findById(employees, id))
-  }, [selectedEmployee, id])
+  }, [selectedEmployee, id, employees])
+
+  const copyToClipboard = ({ email }) => {
+    copy(email)
+    alert(`You have copied "${email}"`)
+  }
 
   return (
     <div>
@@ -54,6 +60,7 @@ export const Selected = () => {
               </div>
               <div className="row p-2">
                 <button
+                  onClick={() => copyToClipboard(selectedEmployee)}
                   type="button"
                   className="btn custom-btn custom-radius p-3">
                   SHARE

@@ -6,6 +6,7 @@ const Context = createContext()
 
 const ContextProvider = ({ children }) => {
   const [employees, setEmployees] = useState([])
+  const [params, setParams] = useState()
 
   useEffect(() => {
     fetchEmployees().then(res => {
@@ -14,7 +15,7 @@ const ContextProvider = ({ children }) => {
   }, [])
 
   return (
-    <Context.Provider value={{ employees, setEmployees }}>
+    <Context.Provider value={{ employees, setEmployees, params, setParams }}>
       {children}
     </Context.Provider>
   )

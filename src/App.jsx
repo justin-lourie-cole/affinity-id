@@ -1,20 +1,20 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import { Home, EmployeeList, Edit, Create, Selected, NavV2 } from './components'
+import { Home, EmployeeList, Edit, Create, Selected, Nav } from './components'
 
 const App = () => {
   return (
     <div className="content app-padding">
       <div className="container">
-        <NavV2 />
+        <Nav />
       </div>
       <div className="container">
         <div className="row">
           <div className="col d-flex justify-content-center mb-4">
             <EmployeeList />
           </div>
-          <div className="col d-flex justify-content-center">
+          <div className="col d-flex justify-content-center pb-4">
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/create" component={Create} />

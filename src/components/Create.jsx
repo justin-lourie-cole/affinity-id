@@ -7,11 +7,11 @@ import { changeHandler } from '../utilities'
 
 export const Create = () => {
   const [formData, setFormData] = useState({
-    image: '',
+    image: './img/andy.png',
     name: '',
     email: '',
-    role: '',
-    team: '',
+    role: 'Admin',
+    team: 'Creative',
     address: ''
   })
   const { setEmployees } = useContext(Context)
@@ -34,7 +34,7 @@ export const Create = () => {
 
   return (
     <form
-      className="card custom-radius shadow p-5 mb-5 bg-body rounded form-width"
+      className="card custom-radius shadow p-5 bg-body rounded form-width"
       onSubmit={handleSubmit}>
       <div className="badge position-absolute w-auto top-0 start-100 p-0 translate-middle">
         <button
@@ -63,7 +63,7 @@ export const Create = () => {
           <option value="./img/jack.png">Jack</option>
           <option value="./img/mary.png">Mary</option>
           <option value="./img/victoria.png">Victoria</option>
-          <option value="./img/justin.png">Victoria</option>
+          <option value="./img/justin.png">Justin</option>
         </select>
       </div>
       <div className="mb-3">
@@ -126,7 +126,6 @@ export const Create = () => {
           <option value="Creative">Creative</option>
           <option value="Management">Management</option>
           <option value="Finance & Admin">Finance & Admin</option>
-          <option value="Spiritual Advisor">Spiritual Advisor</option>
         </select>
       </div>
       <div className="mb-3">

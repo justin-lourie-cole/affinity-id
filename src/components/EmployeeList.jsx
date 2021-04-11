@@ -5,8 +5,8 @@ import { Employee } from './index'
 import { filterByRole, sortAtoZ, sortZtoA } from '../utilities'
 
 export const EmployeeList = () => {
-  const [order, setOrder] = useState([])
   const [descending, setDescending] = useState(true)
+  const [order, setOrder] = useState([])
 
   const { employees } = useContext(Context)
 
@@ -14,7 +14,7 @@ export const EmployeeList = () => {
     descending
       ? setOrder(sortAtoZ(employees, 'name'))
       : setOrder(sortZtoA(employees, 'name'))
-  }, [descending, employees]) //
+  }, [descending, employees])
 
   return (
     <div>

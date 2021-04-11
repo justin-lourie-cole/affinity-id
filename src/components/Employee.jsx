@@ -1,16 +1,26 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
+
+import { Context } from '../context/Context'
 
 export const Employee = ({ id, image, name, role, team }) => {
   const history = useHistory()
+  const { params, setParams } = useContext(Context)
 
-  const selectEmployee = () => history.push(`/${id}`)
+  const selectEmployee = () => {
+    setParams(id)
+    history.push(`/${id}`)
+  }
 
   return (
     <div>
       {id && (
         <div
-          className="card btn employee-list-card custom-radius shadow p-3 mb-4 bg-body"
+          className={
+            params !== Number(id)
+              ? 'card btn employee-list-card custom-radius p-3 mb-4 bg-body shadow'
+              : 'card btn employee-list-card custom-radius p-3 mb-4 bg-body'
+          }
           onClick={selectEmployee}>
           <div className="row">
             <div className="col-3 list-img-wrapper">

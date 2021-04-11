@@ -45,7 +45,7 @@ export const Edit = () => {
 
   return (
     <form
-      className="card custom-radius shadow p-5 mb-5 bg-body form-width"
+      className="card custom-radius shadow p-5 bg-body form-width"
       onSubmit={handleSubmit}>
       <div className="badge position-absolute w-auto top-0 start-100 p-0 translate-middle">
         <button
@@ -128,7 +128,6 @@ export const Edit = () => {
           <option value="Creative">Creative</option>
           <option value="Finance & Admin">Finance & Admin</option>
           <option value="Management">Management</option>
-          <option value="Spiritual Advisor">Spiritual Advisor</option>
         </select>
       </div>
       <div className="mb-3">
