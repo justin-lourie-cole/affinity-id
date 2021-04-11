@@ -35,9 +35,9 @@ export const EmployeeList = () => {
           <h5 className="catagory-title-right">
             Sort by:{' '}
             {descending ? (
-              <span onClick={() => setDescending(!descending)}>Z to A</span>
-            ) : (
               <span onClick={() => setDescending(!descending)}>A to Z</span>
+            ) : (
+              <span onClick={() => setDescending(!descending)}>Z to A</span>
             )}
           </h5>
         </div>
