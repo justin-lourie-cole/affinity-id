@@ -53,6 +53,16 @@
       "address": "115c Moore St",
       "city": "Auckland",
       "id": 6
+    },
+    {
+      "image": "./img/andy.png",
+      "name": "Andy Man",
+      "email": "andy@affinityid.co.nz",
+      "role": "Employee",
+      "team": "Creative",
+      "address": "25 college hill",
+      "city": "Auckland",
+      "id": 7
     }
   ]
 }
