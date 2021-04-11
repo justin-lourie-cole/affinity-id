@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 
-import { EmployeeContext } from '../context/Context'
+import { EmployeeContext, SearchContext } from '../context/Context'
 import { Employee } from './index'
 import { filterByRole, sortAtoZ, sortZtoA } from '../utilities'
 
@@ -9,12 +9,21 @@ export const EmployeeList = () => {
   const [order, setOrder] = useState([])
 
   const { employees } = useContext(EmployeeContext)
+  const { query } = useContext(SearchContext)
 
   useEffect(() => {
     descending
       ? setOrder(sortAtoZ(employees, 'name'))
       : setOrder(sortZtoA(employees, 'name'))
   }, [descending, employees])
+
+  useEffect(() => {
+    setOrder(
+      employees.filter(employee =>
+        employee.name.toLowerCase().includes(query.toLowerCase())
+      )
+    )
+  }, [query])
 
   return (
     <div>

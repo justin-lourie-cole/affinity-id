@@ -4,6 +4,7 @@ import { fetchEmployees } from '../api/apiClient'
 
 const EmployeeContext = createContext()
 const IdContext = createContext()
+const SearchContext = createContext()
 
 const EmployeeContextProvider = ({ children }) => {
   const [employees, setEmployees] = useState([])
@@ -31,9 +32,21 @@ const IdContextProvider = ({ children }) => {
   )
 }
 
+const SearchContextProvider = ({ children }) => {
+  const [query, setQuery] = useState('')
+
+  return (
+    <SearchContext.Provider value={{ query, setQuery }}>
+      {children}
+    </SearchContext.Provider>
+  )
+}
+
 export {
   EmployeeContext,
   EmployeeContextProvider,
   IdContext,
-  IdContextProvider
+  IdContextProvider,
+  SearchContext,
+  SearchContextProvider
 }

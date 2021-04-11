@@ -1,27 +1,14 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { EmployeeContext } from '../context/Context'
-import { fetchEmployees } from '../api/apiClient'
+import { SearchContext } from '../context/Context'
 
 export const Nav = () => {
-  const [searchInput, setSearchInput] = useState('')
-
-  const { employees, setEmployees } = useContext(EmployeeContext)
+  const { query, setQuery } = useContext(SearchContext)
 
   const handleChange = e => {
-    setSearchInput(e.target.value)
+    setQuery(e.target.value)
   }
-
-  // TODO this isn't working yet
-  useEffect(() => {
-    let regex = '/' + searchInput + '/g'
-    if (searchInput.length) {
-      setEmployees(employees.filter(employee => employee.name.match(regex)))
-    } else {
-      fetchEmployees().then(res => setEmployees(res))
-    }
-  }, [searchInput])
 
   return (
     <div>
@@ -45,7 +32,7 @@ export const Nav = () => {
             <input
               className="p-3"
               id="search-box"
-              value={searchInput}
+              value={query}
               onChange={handleChange}
               type="text"
               placeholder="Search:"
