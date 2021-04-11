@@ -23,7 +23,7 @@ export const EmployeeList = () => {
         employee.name.toLowerCase().includes(query.toLowerCase())
       )
     )
-  }, [query, descending])
+  }, [query, descending, employees])
 
   return (
     <div>
