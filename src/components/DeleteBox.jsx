@@ -2,12 +2,12 @@ import React, { useContext, useState } from 'react'
 import { useHistory, NavLink } from 'react-router-dom'
 
 import { deleteEmployee, fetchEmployees } from '../api/apiClient'
-import { Context } from '../context/Context'
+import { EmployeeContext } from '../context/Context'
 
 export const DeleteBox = ({ id }) => {
   const [isVisible, setIsVisible] = useState(false)
 
-  const { setEmployees } = useContext(Context)
+  const { setEmployees } = useContext(EmployeeContext)
   const history = useHistory()
   const toggleVisibility = () => setIsVisible(!isVisible)
 

@@ -6,7 +6,7 @@ import {
   updateEmployee,
   deleteEmployee
 } from './apiClient'
-import { mockdb } from '../mockdb'
+import { mockdb } from '../testUtilities/mockdb'
 
 const baseUrl = 'http://localhost:3004/employees/'
 

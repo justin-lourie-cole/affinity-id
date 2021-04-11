@@ -1,13 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { Context } from '../context/Context'
+import { EmployeeContext } from '../context/Context'
 import { fetchEmployees } from '../api/apiClient'
 
 export const Nav = () => {
   const [searchInput, setSearchInput] = useState('')
 
-  const { employees, setEmployees } = useContext(Context)
+  const { employees, setEmployees } = useContext(EmployeeContext)
 
   const handleChange = e => {
     setSearchInput(e.target.value)

@@ -2,11 +2,11 @@ import React, { createContext, useState, useEffect } from 'react'
 
 import { fetchEmployees } from '../api/apiClient'
 
-const Context = createContext()
+const EmployeeContext = createContext()
+const IdContext = createContext()
 
-const ContextProvider = ({ children }) => {
+const EmployeeContextProvider = ({ children }) => {
   const [employees, setEmployees] = useState([])
-  const [params, setParams] = useState()
 
   useEffect(() => {
     fetchEmployees().then(res => {
@@ -15,10 +15,25 @@ const ContextProvider = ({ children }) => {
   }, [])
 
   return (
-    <Context.Provider value={{ employees, setEmployees, params, setParams }}>
+    <EmployeeContext.Provider value={{ employees, setEmployees }}>
       {children}
-    </Context.Provider>
+    </EmployeeContext.Provider>
   )
 }
 
-export { Context, ContextProvider }
+const IdContextProvider = ({ children }) => {
+  const [params, setParams] = useState()
+
+  return (
+    <IdContext.Provider value={{ params, setParams }}>
+      {children}
+    </IdContext.Provider>
+  )
+}
+
+export {
+  EmployeeContext,
+  EmployeeContextProvider,
+  IdContext,
+  IdContextProvider
+}

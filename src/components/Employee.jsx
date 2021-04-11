@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 
-import { Context } from '../context/Context'
+import { IdContext } from '../context/Context'
 
 export const Employee = ({ id, image, name, role, team }) => {
   const history = useHistory()
-  const { params, setParams } = useContext(Context)
+  const { params, setParams } = useContext(IdContext)
 
   const selectEmployee = () => {
     setParams(id)

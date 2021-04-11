@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 
 import { updateEmployee, fetchEmployees } from '../api/apiClient'
-import { Context } from '../context/Context'
+import { EmployeeContext } from '../context/Context'
 import { findById, changeHandler } from '../utilities'
 
 export const Edit = () => {
@@ -15,7 +15,7 @@ export const Edit = () => {
     address: ''
   })
 
-  const { employees, setEmployees } = useContext(Context)
+  const { employees, setEmployees } = useContext(EmployeeContext)
   const { id } = useParams()
   const history = useHistory()
   const goBack = () => history.goBack()

@@ -1,16 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { ContextProvider } from './context/Context'
+import { EmployeeContextProvider, IdContextProvider } from './context/Context'
 
 import './index.css'
 import App from './App'
 
 ReactDOM.render(
-  <ContextProvider>
-    <Router>
-      <App />
-    </Router>
-  </ContextProvider>,
+  <EmployeeContextProvider>
+    <IdContextProvider>
+      <Router>
+        <App />
+      </Router>
+    </IdContextProvider>
+  </EmployeeContextProvider>,
   document.getElementById('root')
 )

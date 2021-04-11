@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { addEmployee, fetchEmployees } from '../api/apiClient'
-import { Context } from '../context/Context'
+import { EmployeeContext } from '../context/Context'
 import { changeHandler } from '../utilities'
 
 export const Create = () => {
@@ -14,7 +14,7 @@ export const Create = () => {
     team: 'Creative',
     address: ''
   })
-  const { setEmployees } = useContext(Context)
+  const { setEmployees } = useContext(EmployeeContext)
   const history = useHistory()
   const goBack = () => history.goBack()
 

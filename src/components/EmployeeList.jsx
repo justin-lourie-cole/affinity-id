@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 
-import { Context } from '../context/Context'
+import { EmployeeContext } from '../context/Context'
 import { Employee } from './index'
 import { filterByRole, sortAtoZ, sortZtoA } from '../utilities'
 
@@ -8,7 +8,7 @@ export const EmployeeList = () => {
   const [descending, setDescending] = useState(true)
   const [order, setOrder] = useState([])
 
-  const { employees } = useContext(Context)
+  const { employees } = useContext(EmployeeContext)
 
   useEffect(() => {
     descending

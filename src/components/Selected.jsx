@@ -2,13 +2,13 @@ import React, { useContext, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import copy from 'copy-to-clipboard'
 
-import { Context } from '../context/Context'
+import { EmployeeContext } from '../context/Context'
 import { DeleteBox } from './DeleteBox'
 import { findById } from '../utilities'
 
 export const Selected = () => {
   const [selectedEmployee, setSelectedEmployee] = useState({})
-  const { employees } = useContext(Context)
+  const { employees } = useContext(EmployeeContext)
   const { id } = useParams()
 
   useEffect(() => {
