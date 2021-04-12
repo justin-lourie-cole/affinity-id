@@ -19,14 +19,14 @@ export const Create = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    let employeeId
+    let newEmployeeId
     addEmployee(formData)
       .then(res => {
-        employeeId = res.id
+        newEmployeeId = res.id
         return fetchEmployees()
       })
       .then(res => setEmployees(res))
-      .then(() => history.push(`/${employeeId}`))
+      .then(() => history.push(`/${newEmployeeId}`))
   }
 
   return (
