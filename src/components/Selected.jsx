@@ -1,19 +1,18 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
 import copy from 'copy-to-clipboard'
 
-import { EmployeeContext } from '../context/Context'
+import { EmployeeContext, IdContext } from '../context/Context'
 import { DeleteBox } from './DeleteBox'
 import { findById } from '../utilities'
 
 export const Selected = () => {
   const [selectedEmployee, setSelectedEmployee] = useState({})
   const { employees } = useContext(EmployeeContext)
-  const { id } = useParams()
+  const { params } = useContext(IdContext)
 
   useEffect(() => {
-    setSelectedEmployee(findById(employees, id))
-  }, [selectedEmployee, id, employees])
+    setSelectedEmployee(findById(employees, params))
+  }, [selectedEmployee, params, employees])
 
   const copyToClipboard = ({ email }) => {
     copy(email)
@@ -36,7 +35,7 @@ export const Selected = () => {
               <h5 className="name-lg text-center">{selectedEmployee.name}</h5>
               <h6 className="email text-center">{selectedEmployee.email}</h6>
               <div className="row d-flex justify-content-center">
-                <DeleteBox id={id} />
+                <DeleteBox id={params} />
               </div>
               <div className="row p-2">
                 <div className="col">

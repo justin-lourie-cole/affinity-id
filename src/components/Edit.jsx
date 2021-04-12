@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 import { updateEmployee, fetchEmployees } from '../api/apiClient'
-import { EmployeeContext } from '../context/Context'
+import { EmployeeContext, IdContext } from '../context/Context'
 import { findById, changeHandler } from '../utilities'
 
 export const Edit = () => {
@@ -16,13 +16,13 @@ export const Edit = () => {
   })
 
   const { employees, setEmployees } = useContext(EmployeeContext)
-  const { id } = useParams()
+  const { params } = useContext(IdContext)
   const history = useHistory()
   const goBack = () => history.goBack()
 
   const { image, name, email, role, team, address, city } = findById(
     employees,
-    id
+    params
   )
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export const Edit = () => {
   const handleSubmit = e => {
     e.preventDefault()
     let employeeId
-    updateEmployee(id, formData)
+    updateEmployee(params, formData)
       .then(res => {
         employeeId = res.id
         return fetchEmployees()
