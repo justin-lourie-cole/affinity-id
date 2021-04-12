@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import { Home, EmployeeList, Edit, Create, Selected, Nav } from './components'
+import { fetchEmployees } from './api/apiClient'
+import { EmployeeContext } from './context/Context'
 
 const App = () => {
+  const { setEmployees } = useContext(EmployeeContext)
+
+  useEffect(() => {
+    fetchEmployees().then(res => {
+      setEmployees(res)
+    })
+  }, [setEmployees])
+
   return (
     <div className="content app-padding">
       <div className="container">
