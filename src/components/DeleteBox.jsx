@@ -4,7 +4,7 @@ import { useHistory, NavLink } from 'react-router-dom'
 import { deleteEmployee, fetchEmployees } from '../api/apiClient'
 import { EmployeeContext, IdContext } from '../context/Context'
 
-export const DeleteBox = ({ id }) => {
+export const DeleteBox = () => {
   const [isVisible, setIsVisible] = useState(false)
 
   const { setEmployees } = useContext(EmployeeContext)
@@ -13,7 +13,7 @@ export const DeleteBox = ({ id }) => {
   const toggleVisibility = () => setIsVisible(!isVisible)
 
   const handleDelete = () => {
-    deleteEmployee(id)
+    deleteEmployee(params)
       .then(() => history.push('/'))
       .then(() => fetchEmployees())
       .then(res => setEmployees(res))
@@ -57,7 +57,7 @@ export const DeleteBox = ({ id }) => {
       ) : (
         <div className="row p-2">
           <div className="col d-flex justify-content-end">
-            <NavLink to={`/${id}/edit`}>
+            <NavLink to={`/${params}/edit`}>
               <button
                 type="button"
                 className="btn btn-secondary rounded-circle"

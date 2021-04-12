@@ -18,29 +18,19 @@ export const Edit = () => {
   const { employees, setEmployees } = useContext(EmployeeContext)
   const { params } = useContext(IdContext)
   const history = useHistory()
-  const goBack = () => history.goBack()
 
-  const { image, name, email, role, team, address, city } = findById(
-    employees,
-    params
-  )
+  const selectedEmployee = findById(employees, params)
 
   useEffect(() => {
-    setFormData({ image, name, email, role, team, address, city })
-  }, [image, name, email, role, team, address, city])
-
-  const handleChange = e => changeHandler(e, formData, setFormData)
+    setFormData(selectedEmployee)
+  }, [selectedEmployee])
 
   const handleSubmit = e => {
     e.preventDefault()
-    let employeeId
     updateEmployee(params, formData)
-      .then(res => {
-        employeeId = res.id
-        return fetchEmployees()
-      })
+      .then(() => fetchEmployees())
       .then(res => setEmployees(res))
-      .then(() => history.push(`/${employeeId}`))
+      .then(() => history.push(`/${params}`))
   }
 
   return (
@@ -52,7 +42,7 @@ export const Edit = () => {
           type="button"
           className="btn rounded-circle"
           id="back-btn"
-          onClick={goBack}>
+          onClick={() => history.goBack()}>
           <i className="fas fa-times danger"></i>
         </button>
       </div>
@@ -65,7 +55,7 @@ export const Edit = () => {
           name="image"
           value={formData.image}
           aria-label="Default select example"
-          onChange={handleChange}>
+          onChange={e => changeHandler(e, formData, setFormData)}>
           <option value="./img/andy.png">Andy</option>
           <option value="./img/donna.png">Donna</option>
           <option value="./img/jack.png">Jack</option>
@@ -84,7 +74,7 @@ export const Edit = () => {
           value={formData.name}
           aria-describedby="emailHelp"
           placeholder="Enter name"
-          onChange={handleChange}
+          onChange={e => changeHandler(e, formData, setFormData)}
         />
       </div>
       <div className="mb-3">
@@ -98,7 +88,7 @@ export const Edit = () => {
           value={formData.email}
           aria-describedby="emailHelp"
           placeholder="Enter email"
-          onChange={handleChange}
+          onChange={e => changeHandler(e, formData, setFormData)}
         />
       </div>
       <div className="mb-3">
@@ -110,7 +100,7 @@ export const Edit = () => {
           name="role"
           value={formData.role}
           aria-label="Default select example"
-          onChange={handleChange}>
+          onChange={e => changeHandler(e, formData, setFormData)}>
           <option value="Admin">Admin</option>
           <option value="Employee">Employee</option>
         </select>
@@ -124,7 +114,7 @@ export const Edit = () => {
           name="team"
           value={formData.team}
           aria-label="Default select example"
-          onChange={handleChange}>
+          onChange={e => changeHandler(e, formData, setFormData)}>
           <option value="Creative">Creative</option>
           <option value="Finance & Admin">Finance & Admin</option>
           <option value="Management">Management</option>
@@ -140,7 +130,7 @@ export const Edit = () => {
           value={formData.address}
           aria-describedby="emailHelp"
           placeholder="Enter Address"
-          onChange={handleChange}
+          onChange={e => changeHandler(e, formData, setFormData)}
         />
       </div>
       <div className="mb-3">
@@ -153,7 +143,7 @@ export const Edit = () => {
           value={formData.city}
           aria-describedby="emailHelp"
           placeholder="Enter City"
-          onChange={handleChange}
+          onChange={e => changeHandler(e, formData, setFormData)}
         />
       </div>
 

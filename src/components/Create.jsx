@@ -16,9 +16,6 @@ export const Create = () => {
   })
   const { setEmployees } = useContext(EmployeeContext)
   const history = useHistory()
-  const goBack = () => history.goBack()
-
-  const handleChange = e => changeHandler(e, formData, setFormData)
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -41,7 +38,7 @@ export const Create = () => {
           type="button"
           className="btn rounded-circle"
           id="back-btn"
-          onClick={goBack}>
+          onClick={() => history.goBack()}>
           <i className="fas fa-times danger"></i>
         </button>
       </div>
@@ -54,7 +51,7 @@ export const Create = () => {
           name="image"
           value={formData.image}
           aria-label="Default select example"
-          onChange={handleChange}>
+          onChange={e => changeHandler(e, formData, setFormData)}>
           <option value="DEFAULT" disabled>
             Please select a profile image
           </option>
@@ -76,7 +73,7 @@ export const Create = () => {
           value={formData.name}
           aria-describedby="emailHelp"
           placeholder="Enter name"
-          onChange={handleChange}
+          onChange={e => changeHandler(e, formData, setFormData)}
         />
       </div>
       <div className="mb-3">
@@ -90,7 +87,7 @@ export const Create = () => {
           value={formData.email}
           aria-describedby="emailHelp"
           placeholder="Enter email"
-          onChange={handleChange}
+          onChange={e => changeHandler(e, formData, setFormData)}
         />
       </div>
       <div className="mb-3">
@@ -102,7 +99,7 @@ export const Create = () => {
           name="role"
           value={formData.role}
           aria-label="Default select example"
-          onChange={handleChange}>
+          onChange={e => changeHandler(e, formData, setFormData)}>
           <option value="DEFAULT" disabled>
             Please select a role
           </option>
@@ -119,7 +116,7 @@ export const Create = () => {
           name="team"
           value={formData.team}
           aria-label="Default select example"
-          onChange={handleChange}>
+          onChange={e => changeHandler(e, formData, setFormData)}>
           <option value="DEFAULT" disabled>
             Please select a team
           </option>
@@ -138,7 +135,7 @@ export const Create = () => {
           value={formData.address}
           aria-describedby="emailHelp"
           placeholder="Enter Address"
-          onChange={handleChange}
+          onChange={e => changeHandler(e, formData, setFormData)}
         />
       </div>
       <div className="mb-3">
@@ -151,7 +148,7 @@ export const Create = () => {
           value={formData.city}
           aria-describedby="emailHelp"
           placeholder="Enter City"
-          onChange={handleChange}
+          onChange={e => changeHandler(e, formData, setFormData)}
         />
       </div>
 
