@@ -35,7 +35,7 @@ export const Selected = () => {
               <h5 className="name-lg text-center">{selectedEmployee.name}</h5>
               <h6 className="email text-center">{selectedEmployee.email}</h6>
               <div className="row d-flex justify-content-center">
-                <DeleteBox id={params} />
+                <DeleteBox {...selectedEmployee} />
               </div>
               <div className="row p-2">
                 <div className="col">

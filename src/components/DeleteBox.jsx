@@ -4,7 +4,7 @@ import { useHistory, NavLink } from 'react-router-dom'
 import { deleteEmployee, fetchEmployees } from '../api/apiClient'
 import { EmployeeContext, IdContext } from '../context/Context'
 
-export const DeleteBox = () => {
+export const DeleteBox = ({ name }) => {
   const [isVisible, setIsVisible] = useState(false)
 
   const { setEmployees } = useContext(EmployeeContext)
@@ -57,7 +57,7 @@ export const DeleteBox = () => {
       ) : (
         <div className="row p-2">
           <div className="col d-flex justify-content-end">
-            <NavLink to={`/${params}/edit`}>
+            <NavLink to={`/${name}/edit`}>
               <button
                 type="button"
                 className="btn btn-secondary rounded-circle"

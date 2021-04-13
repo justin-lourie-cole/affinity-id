@@ -9,7 +9,7 @@ export const Employee = ({ id, image, name, role, team }) => {
 
   const selectEmployee = () => {
     setParams(id)
-    history.push(`/${id}`)
+    history.push(`/${name}`)
   }
 
   return (
