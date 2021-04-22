@@ -6,7 +6,7 @@ export const Employee = props => {
   return (
     <div>
       <div className="row">
-        <div className="col-3 list-img-wrapper">
+        <div className="col-2 list-img-wrapper">
           <img className="employee-list-img" src={image} alt="employee"></img>
         </div>
 

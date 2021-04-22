@@ -1,27 +1,14 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { ErrorMessage } from '@hookform/error-message'
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
 
-import { addEmployee } from './employees/services'
-
-export const Create = () => {
-  const dispatch = useDispatch()
-  const {
-    register,
-    formState: { errors },
-    handleSubmit
-  } = useForm()
-  const onSubmit = (data, e) => {
-    e.preventDefault()
-    dispatch(addEmployee(data))
-  }
-  const onError = (errors, e) => console.log(errors, e)
+export const EditBox = () => {
+  const { register, handleSubmit } = useForm()
+  const onSubmit = data => console.log(data)
   const history = useHistory()
 
   return (
-    <form className="card" onSubmit={handleSubmit(onSubmit, onError)}>
+    <form className="card" onSubmit={handleSubmit(onSubmit)}>
       <div className="badge position-absolute top-0 start-100 translate-middle">
         <button
           type="button"
@@ -35,13 +22,7 @@ export const Create = () => {
         <label htmlFor="image" className="form-label">
           Profile Image
         </label>
-        <select
-          className="form-select"
-          name="image"
-          aria-label="select"
-          {...register('image', {
-            required: 'This is required.'
-          })}>
+        <select className="form-select" name="image" aria-label="select">
           <option value="DEFAULT" disabled>
             Please select a profile image
           </option>
@@ -63,18 +44,7 @@ export const Create = () => {
           aria-describedby="name"
           placeholder="Enter name"
           type="text"
-          {...register('name', {
-            required: 'This is required.'
-          })}
-        />
-        <ErrorMessage
-          errors={errors}
-          name="name"
-          render={({ message }) => (
-            <p className="m-0" style={{ color: 'red' }}>
-              {message}
-            </p>
-          )}
+          {...register('name', { required: 'error message' })}
         />
       </div>
       <div className="mb-3 mx-3">
@@ -87,22 +57,13 @@ export const Create = () => {
           name="email"
           aria-describedby="email"
           placeholder="Enter email"
-          {...register('email', {
-            required: 'This is required.'
-          })}
         />
       </div>
       <div className="mb-3 mx-3">
         <label htmlFor="role" className="form-label">
           Role
         </label>
-        <select
-          className="form-select"
-          name="role"
-          aria-label="select"
-          {...register('role', {
-            required: 'This is required.'
-          })}>
+        <select className="form-select" name="role" aria-label="select">
           <option value="DEFAULT" disabled>
             Please select a role
           </option>
@@ -114,13 +75,7 @@ export const Create = () => {
         <label htmlFor="team" className="form-label">
           Team
         </label>
-        <select
-          className="form-select"
-          name="team"
-          aria-label="select"
-          {...register('team', {
-            required: 'This is required.'
-          })}>
+        <select className="form-select" name="team" aria-label="select">
           <option value="DEFAULT" disabled>
             Please select a team
           </option>
@@ -138,9 +93,6 @@ export const Create = () => {
           name="address"
           aria-describedby="address"
           placeholder="Enter Address"
-          {...register('address', {
-            required: 'This is required.'
-          })}
         />
       </div>
       <div className="mb-3 mx-3">
@@ -152,9 +104,6 @@ export const Create = () => {
           name="city"
           aria-describedby="city"
           placeholder="Enter City"
-          {...register('city', {
-            required: 'This is required.'
-          })}
         />
       </div>
       <button

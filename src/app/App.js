@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import { getEmployees } from './components/employees/services'
 
-import { Header, Create, EmployeeList } from './components'
+import { Header, Create, EmployeeList, EditBox } from './components'
 
 export const App = () => {
   const dispatch = useDispatch()
@@ -30,7 +30,7 @@ export const App = () => {
               {/* <Route exact path="/" component={Home} /> */}
               <Route exact path="/create" component={Create} />
               {/* <Route exact path="/:id" component={Selected} /> */}
-              {/* <Route exact path="/:id/edit" component={Edit} /> */}
+              <Route exact path="/:id/edit" component={EditBox} />
             </Switch>
           </div>
         </div>

@@ -14,7 +14,7 @@ export const employeesSlice = createSlice({
       state.status = 'loading'
     },
     [addEmployee.fulfilled]: (state, { payload }) => {
-      state.employees.push(payload.employees)
+      state.employees.push(payload)
       state.status = 'success'
     },
     [addEmployee.rejected]: (state, { payload, error }) => {
