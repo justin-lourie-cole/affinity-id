@@ -1,0 +1,68 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Jack Jackson",
+      "email": "jack@affinityid.co.nz",
+      "role": "Admin",
+      "team": "Creative",
+      "address": "307 Brant Road",
+      "city": "Auckland",
+      "image": "./img/jack.png",
+      "createdAt": "2018-12-10T13: 49: 51.141Z"
+    },
+    {
+      "id": 2,
+      "name": "Victoria Ferguson",
+      "email": "victoria@affinityid.co.nz",
+      "role": "Admin",
+      "team": "Creative",
+      "address": "25 College Hill",
+      "city": "Auckland",
+      "image": "./img/victoria.png",
+      "createdAt": "2018-12-10T13: 49: 51.141Z"
+    },
+    {
+      "id": 3,
+      "name": "Donna Hicks",
+      "email": "donna@affinityid.co.nz",
+      "role": "Employee",
+      "team": "Finance & Admin",
+      "address": "25 College Hill",
+      "city": "Auckland",
+      "image": "./img/donna.png",
+      "createdAt": "2018-12-10T13: 49: 51.141Z"
+    },
+    {
+      "id": 4,
+      "name": "Mary Long",
+      "email": "mary@affinityid.co.nz",
+      "role": "Admin",
+      "team": "Management",
+      "address": "25 College Hill",
+      "city": "Auckland",
+      "image": "./img/mary.png",
+      "createdAt": "2018-12-10T13: 49: 51.141Z"
+    },
+    {
+      "image": "./img/justin.png",
+      "name": "Justin Cole",
+      "email": "justincole@outlook.co.nz",
+      "role": "Employee",
+      "team": "Creative",
+      "address": "115c Moore St",
+      "city": "Auckland",
+      "id": 6
+    },
+    {
+      "image": "./img/andy.png",
+      "name": "Andy Man",
+      "email": "andy@affinityid.co.nz",
+      "role": "Employee",
+      "team": "Creative",
+      "address": "25 college hill",
+      "city": "Auckland",
+      "id": 7
+    }
+  ]
+}
